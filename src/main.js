@@ -4,6 +4,8 @@ import router from './routes'
 import { post, fetch, put } from './utils/http'
 import './plugins/element.js'
 
+import store from './store'
+
 Vue.prototype.$post = post;
 Vue.prototype.$fetch = fetch;
 Vue.prototype.$put = put;
@@ -11,6 +13,7 @@ Vue.prototype.$put = put;
 
 new Vue({
   router,
+  store,
   render(h) {
     return h(App)
   }
