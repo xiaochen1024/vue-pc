@@ -36,7 +36,9 @@ yarn run component 组件名
 
 - 在 router.js 中添加 page 路由
 
-### 开发一个页面流程
+- 在 store/index 中添加 store
+
+### 开发一个组件流程
 
 - yarn run component test
 
