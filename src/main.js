@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './routes'
-import { post, fetch, put } from './utils/http'
+import { post, fetch, put } from './utils/request'
 import './plugins/element.js'
 
 import store from './store'

@@ -51,3 +51,7 @@ yarn run component 组件名
 - 在使用 elementUi 的时候需要在 plugins 中引入相应的组件 懒加载使用
 
 - 在 store 新增 mutations、getters 之后需要在 page 中使用 mapGetters, mapMutations 引入
+
+- 开发环境存在跨域请配置 vue.config.js 中的 devserver
+
+- 生产环境打包需要配置.env.production

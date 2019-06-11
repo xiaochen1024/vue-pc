@@ -6,6 +6,15 @@ function resolve(dir) {
   return path.join(__dirname, dir);
 }
 module.exports = {
+  devServer: {
+    proxy: {
+      "/api": {
+        target: "<url>",
+        ws: true,
+        changeOrigin: true
+      }
+    }
+  },
   css: {
     extract: true,
     loaderOptions: {
