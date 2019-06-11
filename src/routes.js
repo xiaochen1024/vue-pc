@@ -1,19 +1,15 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+import Vue from "vue";
+import VueRouter from "vue-router";
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
-const Hello = require('./pages/Hello.vue')
-const Test = require('./pages/Test.vue')
+const Todo = require("./pages/Todo.vue");
 
-const routes = [
-  { path: '/hello', components: Hello  },
-  { path: '/test', components: Test },
-]
+const routes = [{ path: "/todo", components: Todo }];
 
 const router = new VueRouter({
-  mode: 'history',
-  routes: routes,
-})
+  mode: "history",
+  routes: routes
+});
 
-export default router
+export default router;
