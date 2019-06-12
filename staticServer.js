@@ -5,7 +5,7 @@ const app = express();
 var proxy = require("http-proxy-middleware");
 
 // 加载静态文件 打包好的静态文件放在dist下
-const dist = path.resolve(__dirname, "../src/main/resources/static");
+const dist = path.resolve(__dirname, "./dist");
 app.use(express.static(dist));
 
 // 设置服务器代理，解决跨域问题
@@ -13,7 +13,7 @@ app.use(express.static(dist));
 app.use(
   "/api",
   proxy({
-    target: "http://dev-dataplatform-01:8080/",
+    target: "",
     changeOrigin: true,
     pathRewrite: {
       "^/api": ""
