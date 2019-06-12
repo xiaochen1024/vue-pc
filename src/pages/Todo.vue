@@ -35,18 +35,22 @@ export default {
 
   computed: {
     todos() {
-      return this.$store.getters[this.visible];
+      return this.$store.getters[`todo/${this.visible}`];
     },
-    ...mapGetters(["pending", "completed", "all"])
+    ...mapGetters({
+      pending: "todo/pending",
+      completed: "todo/completed",
+      all: "todo/all"
+    })
   },
 
-  methods: mapMutations([
-    "addTodo",
-    "removeTodo",
-    "markTodo",
-    "markAllTodo",
-    "clearCompleted"
-  ])
+  methods: mapMutations({
+    addTodo: "todo/addTodo",
+    removeTodo: "todo/removeTodo",
+    markTodo: "todo/markTodo",
+    markAllTodo: "todo/markAllTodo",
+    clearCompleted: "todo/clearCompleted"
+  })
 };
 </script>
 

@@ -1,9 +1,5 @@
-import Vue from "vue";
-import Vuex from "vuex";
-
-Vue.use(Vuex);
-
-export default new Vuex.Store({
+export default {
+  namespaced: true,
   state: {
     todos: []
   },
@@ -34,4 +30,4 @@ export default new Vuex.Store({
     completed: state => state.todos.filter(todo => todo.completed),
     pending: state => state.todos.filter(todo => !todo.completed)
   }
-});
+};
