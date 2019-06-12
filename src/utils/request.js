@@ -13,14 +13,30 @@ function normalizeContentyType(headers) {
   return contentType || "application/x-www-form-urlencoded";
 }
 
+axios.interceptors.request.use(
+  config => {
+    // const loginInfo = JSON.parse(storage.getItem(LOGIN_INFO)) || {};
+    // const token = loginInfo.token;
+    // if (token) {
+    //   config.headers.token = `${token}`;
+    // } else {
+    //   delete config.headers.token;
+    // }
+    return config;
+  },
+  error => Promise.reject(error)
+);
+
 axios.interceptors.response.use(
   response => {
     const { code, msg } = response.data;
     if (code !== 0) {
-      Message({
-        message: msg,
-        type: "error"
-      });
+      response.config.showErr !== false &&
+        Message({
+          message: msg,
+          type: "error"
+        });
+      return Promise.reject(response.data);
     }
     return response.data;
   },
@@ -55,4 +71,35 @@ export function post(url, params, config) {
 export function put(url, params = {}, config) {
   config = Object.assign({}, config);
   return axios.put(url, queryString.stringify(params), config);
+}
+
+export function download(url, params = {}) {
+  axios({
+    url,
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded"
+    },
+    data: queryString.stringify(params),
+    responseType: "blob"
+  })
+    .then(response => {
+      if (!response.data) {
+        return;
+      }
+
+      const header = response.headers["content-disposition"];
+      const filename = /filename=(.+)$/.exec(header)[1];
+      let url = window.URL.createObjectURL(new Blob([response.data]));
+      let link = document.createElement("a");
+      link.style.display = "none";
+      link.href = url;
+      link.setAttribute("download", decodeURIComponent(filename));
+
+      document.body.appendChild(link);
+      link.click();
+    })
+    .catch(error => {
+      return Promise.reject(error);
+    });
 }
