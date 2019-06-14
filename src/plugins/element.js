@@ -1,5 +1,6 @@
 import Vue from "vue";
-import "element-ui/lib/theme-chalk/index.css";
+import '../styles/theme.scss'
+
 import {
   Button,
   Container,
