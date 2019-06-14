@@ -6,12 +6,19 @@ function resolve(dir) {
   return path.join(__dirname, dir);
 }
 module.exports = {
+  publicPath: "/",
+  outputDir: "dist",
+  assetsDir: "static",
+  lintOnSave: process.env.NODE_ENV === "development",
+  productionSourceMap: false,
   devServer: {
     proxy: {
-      "/api": {
+      [process.env.VUE_APP_BASE_API]: {
         target: "<url>",
-        ws: true,
-        changeOrigin: true
+        changeOrigin: true,
+        pathRewrite: {
+          ["^" + process.env.VUE_APP_BASE_API]: ""
+        }
       }
     }
   },
@@ -19,6 +26,7 @@ module.exports = {
     extract: true,
     loaderOptions: {
       css: {},
+      sass: {},
       postcss: {
         plugins: [require("autoprefixer")({})]
       }
@@ -54,13 +62,7 @@ module.exports = {
     }
   },
   chainWebpack: config => {
-    config.resolve.alias
-      .set("@$", resolve("src"))
-      .set("images", resolve("src/images"))
-      .set("styles", resolve("src/styles"))
-      .set("components", resolve("src/components"))
-      .set("pages", resolve("src/pages"))
-      .set("mixin", resolve("src/mixin"));
+    config.resolve.alias.set("@", resolve("src"));
     if (process.env.IS_ANALYZ) {
       config.plugin("webpack-report").use(BundleAnalyzerPlugin, [
         {

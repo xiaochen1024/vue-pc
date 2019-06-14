@@ -30,9 +30,21 @@ yarn run page_store 页面名称
 yarn run component 组件名
 ```
 
+### 生成 page
+
+```
+yarn run page page名
+```
+
+### 生成 store
+
+```
+yarn run store store名
+```
+
 ### 开发一个页面流程
 
-- yarn run page_store test
+- yarn run page_store test 用不到 store 的话可以单独 yarn run page test 生成页面模版
 
 - 在 router.js 中添加 page 路由
 
@@ -42,9 +54,9 @@ yarn run component 组件名
 
 - yarn run component test
 
-- 通用组件命名 Hapi+组件名
+- 通用组件命名 hp-组件名
 
-- 业务组件命名 Sl+组件名
+- 业务组件命名 sl-组件名
 
 - 在相应的 page 引入组件
 

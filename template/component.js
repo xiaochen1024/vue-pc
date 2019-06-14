@@ -1,8 +1,9 @@
 /**
- * pages模版快速生成脚本,执行命令 yarn run component `文件名`
+ * 组件模版快速生成脚本,执行命令 yarn run component `文件名`
  */
 
 const fs = require("fs");
+const { titleCase } = require("./utils");
 
 const dirName = process.argv[2];
 
@@ -45,16 +46,5 @@ export default {
 fs.writeFileSync(`src/components/${u}.vue`, cTep);
 
 console.log(`组件${dirName}已创建`);
-
-function titleCase(str) {
-  const f = str.slice(0, 1);
-  const e = str.slice(1);
-  const l = f.toLocaleLowerCase();
-  const u = f.toUpperCase();
-  return {
-    l: `${l}${e}`,
-    u: `${u}${e}`
-  };
-}
 
 process.exit(0);

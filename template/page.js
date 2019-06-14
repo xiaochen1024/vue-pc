@@ -1,5 +1,5 @@
 /**
- * pages和store模版快速生成脚本,执行命令 yarn run page_store `文件名`
+ * pages模版快速生成脚本,执行命令 yarn run page `文件名`
  */
 
 const fs = require("fs");
@@ -9,7 +9,7 @@ const dirName = process.argv[2];
 
 if (!dirName) {
   console.log("文件夹名称不能为空！");
-  console.log("示例：yarn run page_store test");
+  console.log("示例：yarn run page test");
   process.exit(0);
 }
 
@@ -23,7 +23,6 @@ const pageTep = `<template>
 </template>
 
 <script>
-import { mapGetters, mapMutations } from "vuex";
 
 export default {
   data() {
@@ -34,15 +33,13 @@ export default {
   },
 
   async mounted() {
-    
+
   },
 
   computed: {
-    ...mapGetters([])
   },
 
   methods: {
-    ...mapMutations([])
   }
 };
 </script>
@@ -53,22 +50,8 @@ export default {
 </style>
 `;
 
-// store模版
-const storeTep = `import Vue from "vue";
-import Vuex from "vuex";
-
-Vue.use(Vuex);
-
-export default new Vuex.Store({
-  state: {},
-  mutations: {},
-  getters: {}
-});
-`;
-
 fs.writeFileSync(`src/pages/${u}.vue`, pageTep);
-fs.writeFileSync(`src/store/${l}.js`, storeTep);
 
-console.log(`模版${dirName}和store已创建, 请引入路由和store`);
+console.log(`page模版${dirName}已创建`);
 
 process.exit(0);

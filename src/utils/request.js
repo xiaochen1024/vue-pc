@@ -4,6 +4,7 @@ import queryString from "query-string";
 
 axios.defaults.timeout = 5000;
 axios.defaults.baseURL = process.env.VUE_APP_BASE_API;
+// axios.defaults.headers.withCredentials = true;
 axios.defaults.headers.common.Accept = "application/json";
 axios.defaults.headers.post["Content-Type"] =
   "application/x-www-form-urlencoded";
@@ -45,7 +46,7 @@ axios.interceptors.response.use(
   }
 );
 
-export function fetch(url, params, config) {
+export function get(url, params, config) {
   config = Object.assign({}, config);
   return axios.get(url, { params }, config);
 }
