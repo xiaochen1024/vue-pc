@@ -18,11 +18,16 @@
       <el-table-column prop="date" label="日期" width="140"></el-table-column>
       <el-table-column prop="name" label="姓名" width="120"></el-table-column>
       <el-table-column prop="address" label="地址"></el-table-column>
+      <el-table-column label="操作">
+        <el-button type="primary" v-permission="['002']">操作</el-button>
+      </el-table-column>
     </el-table>
   </div>
 </template>
 
 <script>
+import permission from "@/directive/permission.js"; // 权限判断指令
+
 export default {
   data() {
     const item = {
@@ -41,6 +46,8 @@ export default {
   },
 
   components: {},
+
+  directives: { permission },
 
   computed: {},
 

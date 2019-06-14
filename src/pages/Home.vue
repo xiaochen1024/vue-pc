@@ -1,6 +1,6 @@
 <template>
   <el-container class="home">
-    <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
+    <el-aside width="201px" style="background-color: rgb(238, 241, 246)">
       <el-scrollbar wrap-class="scrollbar-wrapper">
         <el-menu
           :default-active="activeMenu"
@@ -15,6 +15,14 @@
 
     <el-container>
       <el-header style="text-align: right; font-size: 12px">
+        <el-select class="header-select" v-model="value" placeholder="请选择">
+          <el-option
+            v-for="item in options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+          ></el-option>
+        </el-select>
         <el-dropdown>
           <i class="el-icon-setting" style="margin-right: 15px"></i>
           <el-dropdown-menu slot="dropdown">
@@ -39,7 +47,31 @@ import SlMenu from "@/components/sl-menu";
 
 export default {
   data() {
-    return {};
+    return {
+      options: [
+        {
+          value: "选项1",
+          label: "黄金糕"
+        },
+        {
+          value: "选项2",
+          label: "双皮奶"
+        },
+        {
+          value: "选项3",
+          label: "蚵仔煎"
+        },
+        {
+          value: "选项4",
+          label: "龙须面"
+        },
+        {
+          value: "选项5",
+          label: "北京烤鸭"
+        }
+      ],
+      value: ''
+    };
   },
 
   components: { SlMenu },
@@ -92,6 +124,12 @@ export default {
   }
   .el-scrollbar__bar.is-vertical {
     right: 0px;
+  }
+  .header-select {
+    margin-right: 20px;
+    input {
+      // background: grey;
+    }
   }
 }
 </style>
