@@ -1,11 +1,12 @@
 import Vue from "vue";
 import NProgress from "nprogress";
-import 'nprogress/nprogress.css'
+import "nprogress/nprogress.css";
 
 import App from "./App.vue";
 import router from "./routes";
 import { post, get, put } from "./utils/request";
 import "./plugins/element.js";
+import "./styles/index.scss";
 // import { getToken } from "@/utils/auth";
 
 import store from "./store";

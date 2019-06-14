@@ -35,7 +35,9 @@
       </el-header>
 
       <el-main>
-        <router-view></router-view>
+        <transition name="fade-transform" mode="out-in">
+          <router-view></router-view>
+        </transition>
       </el-main>
     </el-container>
   </el-container>
@@ -70,7 +72,7 @@ export default {
           label: "北京烤鸭"
         }
       ],
-      value: ''
+      value: ""
     };
   },
 
@@ -99,6 +101,9 @@ export default {
 <style lang="scss">
 .home {
   border: 1px solid #eee;
+  position: absolute;
+  width: 100%;
+  height: 100%;
   .el-submenu__title {
     width: 200px;
   }

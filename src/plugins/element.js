@@ -1,5 +1,4 @@
 import Vue from "vue";
-import '../styles/theme.scss'
 
 import {
   Button,

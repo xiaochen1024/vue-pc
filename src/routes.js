@@ -17,6 +17,10 @@ export const dynamicRoutes = [
       {
         path: "/test",
         components: Test,
+      },
+      {
+        path: "/test12",
+        components: Todo,
       }
     ]
   },
