@@ -3,28 +3,28 @@ import VueRouter from "vue-router";
 
 Vue.use(VueRouter);
 
-const Home = require("./pages/Home.vue");
-const Todo = require("./pages/Todo.vue");
-const Test = require("./pages/Test.vue");
-const NotFound = require("./pages/NotFound.vue");
+const Home = () => import("./pages/Home.vue");
+const Todo = () => import("./pages/Todo.vue");
+const Test = () => import("./pages/Test.vue");
+const NotFound = () => import("./pages/NotFound.vue");
 
 export const dynamicRoutes = [
-  { path: "/notFound", components: NotFound },
+  { path: "/notFound", component: NotFound },
   {
     path: "/",
-    components: Home,
+    component: Home,
     children: [
       {
         path: "/test",
-        components: Test,
+        component: Test
       },
       {
         path: "/test12",
-        components: Todo,
+        component: Todo
       }
     ]
   },
-  { path: "/todo", components: Todo, icon: "todo" }
+  { path: "/todo", component: Todo, icon: "todo" }
 ];
 
 const router = new VueRouter({

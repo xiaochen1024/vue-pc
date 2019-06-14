@@ -62,6 +62,8 @@ module.exports = {
     }
   },
   chainWebpack: config => {
+    config.plugins.delete('preload')
+    config.plugins.delete('prefetch')
     config.resolve.alias.set("@", resolve("src"));
     if (process.env.IS_ANALYZ) {
       config.plugin("webpack-report").use(BundleAnalyzerPlugin, [
