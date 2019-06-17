@@ -13,6 +13,11 @@ export default [
         path: "/test12",
         name: "菜单12",
         icon: "el-icon-menu"
+      },
+      {
+        path: "/iframe",
+        name: "菜单13",
+        icon: "el-icon-menu"
       }
     ]
   },

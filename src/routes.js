@@ -7,6 +7,7 @@ const Home = () => import("./pages/Home.vue");
 const Todo = () => import("./pages/Todo.vue");
 const Test = () => import("./pages/Test.vue");
 const NotFound = () => import("./pages/NotFound.vue");
+const IframeTest = () => import("./pages/IframeTest.vue");
 
 export const dynamicRoutes = [
   { path: "/notFound", component: NotFound },
@@ -21,6 +22,10 @@ export const dynamicRoutes = [
       {
         path: "/test12",
         component: Todo
+      },
+      {
+        path: "/iframe",
+        component: IframeTest
       }
     ]
   },

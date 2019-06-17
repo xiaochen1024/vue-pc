@@ -23,7 +23,7 @@ const cTep = `
 
 <script>
 export default {
-  name: ${u},
+  name: "${l}",
 
   props: {},
 
@@ -43,7 +43,7 @@ export default {
 </style>
 `;
 
-fs.writeFileSync(`src/components/${u}.vue`, cTep);
+fs.writeFileSync(`src/components/${l}.vue`, cTep);
 
 console.log(`组件${dirName}已创建`);
 
