@@ -15,6 +15,13 @@ if (!dirName) {
 
 const { l, u } = titleCase(dirName);
 
+const f = fs.existsSync(`src/components/${l}.vue`);
+if (f) {
+  console.log(`文件${l}.vue已存在`);
+  process.exit(0);
+}
+
+
 // 页面模版
 const cTep = `
 <template>

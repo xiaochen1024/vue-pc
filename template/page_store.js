@@ -15,6 +15,17 @@ if (!dirName) {
 
 const { l, u } = titleCase(dirName);
 
+const f = fs.existsSync(`src/pages/${u}.vue`);
+const f1 = fs.existsSync(`src/store/${l}.js`);
+if (f) {
+  console.log(`文件${u}.vue已存在`);
+  process.exit(0);
+}
+if (f1) {
+  console.log(`文件${l}.js已存在`);
+  process.exit(0);
+}
+
 // 页面模版
 const pageTep = `<template>
   <div class="${l}">
