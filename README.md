@@ -69,3 +69,7 @@ yarn run store store名
 - 开发环境存在跨域请配置 vue.config.js 中的 devserver
 
 - 生产环境打包需要配置.env.production
+
+- vue.config.js中 outputDir 可以配置生产环境打包后的路径
+
+- api文件夹中可以创建请求相关的文件
