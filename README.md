@@ -3,6 +3,8 @@
 ```
 npm install -g yo
 npm install -g generator-vue-pc
+mkdir projectDir
+cd projectDir
 yo vue-pc
 ```
 
