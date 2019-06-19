@@ -10,6 +10,7 @@
 
 ```
 git clone url
+cd project
 yarn install
 ```
 
@@ -60,6 +61,8 @@ yarn run store store名
 ```
 npm install -g yo
 npm install -g generator-vue-pc
+mkdir projectDir
+cd projectDir
 yo vue-pc
 ```
 
