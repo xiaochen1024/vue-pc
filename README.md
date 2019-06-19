@@ -1,4 +1,11 @@
-# vue-pc
+## 脚手架自动生成
+
+```
+npm install -g yo
+npm install -g generator-vue-pc
+yo vue-pc
+```
+
 
 ## 安装项目依赖
 
@@ -18,33 +25,29 @@ yarn run serve
 yarn run build
 ```
 
-### 生成 page 和 store 模版
+### 生成页面
 
 ```
-yarn run page_store 页面名称
+yo vue-pc:page pageName
 ```
 
-### 生成组件模版
+### 生成组件
 
 ```
-yarn run component 组件名
-```
-
-### 生成 page
-
-```
-yarn run page page名
+yo vue-pc:component componentName
 ```
 
 ### 生成 store
 
 ```
-yarn run store store名
+yo vue-pc:store storeName
 ```
 
 ### 开发一个页面流程
 
-- yarn run page_store test 用不到 store 的话可以单独 yarn run page test 生成页面模版
+- yo vue-pc:page pageName
+
+- yo vue-pc:store storeName
 
 - 在 router.js 中添加 page 路由
 
@@ -52,7 +55,7 @@ yarn run store store名
 
 ### 开发一个组件流程
 
-- yarn run component test
+- yo vue-pc:component componentName
 
 - 通用组件命名 hp-组件名
 
